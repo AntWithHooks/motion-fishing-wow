@@ -90,7 +90,7 @@ class PortableProfileTests(unittest.TestCase):
             import sys
             with patch.object(sys, 'frozen', True, create=True), \
                  patch.object(sys, 'executable', str(Path(tmp)/'MotionFishing.exe')):
-                self.assertEqual(store.application_dir(),Path(tmp))
+                self.assertEqual(store.application_dir(),Path(tmp).resolve())
 
 
 if __name__=='__main__':
