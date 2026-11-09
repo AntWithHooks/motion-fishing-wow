@@ -1,0 +1,54 @@
+name: Bug report
+description: Something isn't working as expected
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Please remove IP addresses and private data before submitting logs."
+  - type: input
+    id: version
+    attributes:
+      label: Motion Fishing version
+      placeholder: "v1.2"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Connection / phyphox
+        - CAST recognition
+        - HOOK recognition
+        - NEGATIVE / UNKNOWN
+        - Profiles / settings
+        - UI / language
+        - Windows packaging
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Connect... 2. Train... 3. Move..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and relevant sanitized logs
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "Windows 11, iPhone 15, phyphox..."
