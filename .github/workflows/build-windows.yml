@@ -47,8 +47,8 @@ jobs:
           New-Item -ItemType Directory -Path release/profiles -Force | Out-Null
           Copy-Item dist/MotionFishing.exe release/MotionFishing.exe
           Copy-Item profiles/default.json release/profiles/default.json
-          Copy-Item MotionFishing-Guide-EN.pdf release/MotionFishing-Guide-EN.pdf
-          Copy-Item MotionFishing-Guide-RU.pdf release/MotionFishing-Guide-RU.pdf
+          if (Test-Path "MotionFishing-Guide-EN.pdf") { Copy-Item MotionFishing-Guide-EN.pdf release/MotionFishing-Guide-EN.pdf }
+          if (Test-Path "MotionFishing-Guide-RU.pdf") { Copy-Item MotionFishing-Guide-RU.pdf release/MotionFishing-Guide-RU.pdf }
           if (Test-Path release/profiles/settings.json) { throw 'Private settings must not ship' }
           Compress-Archive -Path release/* -DestinationPath MotionFishing-Windows-Portable.zip -Force
       - name: Upload portable ZIP
