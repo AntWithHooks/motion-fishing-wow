@@ -6,7 +6,7 @@
 
 ![Platform](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6) ![Phone](https://img.shields.io/badge/iPhone-iOS-222222) ![Network](https://img.shields.io/badge/connection-local%20Wi--Fi-00856A) ![Languages](https://img.shields.io/badge/UI-EN%20%7C%20RU-D5A640) ![License](https://img.shields.io/badge/license-MIT-blue)
 
-> **Project status: experimental.** Source files and portable Windows builds are being added. There is **no installer or ready-to-use executable here yet**.
+> **Experimental project.** Source code and a [Windows portable release (v1.2.0)](https://github.com/AntWithHooks/motion-fishing-wow/releases/tag/v1.2.0) are available. Gesture recognition requires individual calibration.
 
 ## About
 
@@ -48,12 +48,12 @@ The tool responds to deliberate player gestures. It does **not** detect bites au
 2. Import the **Acceleration and Attitude** experiment into phyphox.
 3. Connect iPhone and Windows PC to the same local network.
 4. Open the experiment, press **Play**, enable **Remote Access**, and copy the address shown by phyphox.
-5. Once a Windows release is available, download its **portable ZIP from Releases** (GitHub's automatic *Source code* ZIP is not the executable). Extract it into a writable folder and run `MotionFishing.exe`.
+5. Download the **portable ZIP from [Releases](https://github.com/AntWithHooks/motion-fishing-wow/releases/tag/v1.2.0)** (GitHub's automatic *Source code* ZIP is not the executable). Extract it into a writable folder and run `MotionFishing.exe`.
 6. Enter the phyphox address and click **Connect**.
 7. In WoW, set up a one-key fishing addon and verify its assigned key (e.g. `F8`) works with your physical keyboard. Select the same key in Motion Fishing.
 8. Train several CAST, HOOK, and NEGATIVE examples. **Disable key sending** while testing recognition in the event log; enable it when ready to play.
 
-When the full files are uploaded, illustrated PDF setup guides will be included in the repository and release.
+The Windows release includes the packaged program; the source tree provides scripts for developers.
 
 ## How profiles work
 
