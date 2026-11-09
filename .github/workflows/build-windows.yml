@@ -1,0 +1,59 @@
+name: Build Motion Fishing for Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "*.py"
+      - "tests/**"
+      - "assets/**"
+      - "profiles/default.json"
+      - "MotionFishing-Guide-EN.pdf"
+      - "MotionFishing-Guide-RU.pdf"
+      - ".github/workflows/build-windows.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install PyInstaller
+        shell: pwsh
+        run: python -m pip install "pyinstaller>=6.14,<7"
+      - name: Run unit tests
+        shell: pwsh
+        run: python -m unittest discover -s tests -v
+      - name: Build Windows executable
+        shell: pwsh
+        run: |
+          python -m PyInstaller --noconfirm --clean --onefile --windowed `
+            --name MotionFishing `
+            --icon "assets/motion_fishing.ico" `
+            --add-data "assets/motion_fishing.ico;assets" `
+            --add-data "profiles/default.json;profiles" `
+            motion_fishing_gui.py
+      - name: Package portable app
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path release/profiles -Force | Out-Null
+          Copy-Item dist/MotionFishing.exe release/MotionFishing.exe
+          Copy-Item profiles/default.json release/profiles/default.json
+          Copy-Item MotionFishing-Guide-EN.pdf release/MotionFishing-Guide-EN.pdf
+          Copy-Item MotionFishing-Guide-RU.pdf release/MotionFishing-Guide-RU.pdf
+          if (Test-Path release/profiles/settings.json) { throw 'Private settings must not ship' }
+          Compress-Archive -Path release/* -DestinationPath MotionFishing-Windows-Portable.zip -Force
+      - name: Upload portable ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: MotionFishing-Windows-Portable
+          path: MotionFishing-Windows-Portable.zip
+          if-no-files-found: error
