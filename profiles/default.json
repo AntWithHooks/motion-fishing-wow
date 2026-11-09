@@ -1,0 +1,24 @@
+{
+  "url": "",
+  "key": "F8",
+  "only_wow": true,
+  "cast_threshold": 2.4,
+  "hook_threshold": 1.75,
+  "cast_match_tolerance": 0.42,
+  "hook_match_tolerance": 0.42,
+  "negative_match_tolerance": 0.36,
+  "min_reversal_speed": 0.16,
+  "hook_direction_min_cosine": 0.5,
+  "hook_max_rotation_degrees": 40.0,
+  "rotation_trigger_dps": 130.0,
+  "ambiguity_margin": 0.045,
+  "cooldown": 0.85,
+  "hook_guard": 1.5,
+  "quiet_seconds": 0.2,
+  "imu_templates": {
+    "CAST": [],
+    "HOOK": [],
+    "NEGATIVE": []
+  },
+  "language": "en"
+}

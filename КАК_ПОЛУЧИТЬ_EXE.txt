@@ -1,0 +1,11 @@
+Motion Fishing v1.1 — portable build
+
+1. Запусти START.bat один раз: при первом запуске программа перенесёт твои настройки из APPDATA в profiles/settings.json.
+2. В «Школе жестов» нажми «СОХРАНИТЬ МОИ ЖЕСТЫ В ОБЩИЙ ПРЕСЕТ» (либо запусти PUBLISH_PRESET.bat).
+3. Проверь, что в profiles/default.json появились примеры CAST/HOOK/NEGATIVE.
+4. Запусти BUILD_EXE.bat на Windows (нужен Python только на компьютере сборки).
+5. Передавай файл MotionFishing-Windows-Portable.zip (собирается автоматически и не содержит profiles/settings.json).
+
+Чтобы поделиться через GitHub: добавь исходники и profiles/default.json в репозиторий.
+Для пользователей без Python опубликуй ZIP из GitHub Actions Artifacts или Release.
+Не публикуй profiles/settings.json — в нём твой локальный адрес phyphox.
