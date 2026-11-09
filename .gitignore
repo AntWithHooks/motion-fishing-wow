@@ -1,0 +1,17 @@
+# Local player data
+profiles/settings.json
+profiles/settings-v0.9-backup.json
+profiles/*.importing
+
+# Build artifacts
+__pycache__/
+*.py[cod]
+.build_env/
+.venv/
+build/
+dist/
+release/
+*.spec
+MotionFishing-Windows-Portable.zip
+.pytest_cache/
+.DS_Store
